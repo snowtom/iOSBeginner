@@ -1,18 +1,23 @@
 import Cocoa
 
-let name = "Tom"
-let radius = 5.2
-let pi = 3.1415926
-let greeting = "Hello, \(name)!"
-let circleArea = "The area of a circle with radius \(radius) is \(pi * radius * radius)"
-print(greeting, circleArea)
+func calculateStatistics(scores: [Int]) -> (min: Int, max: Int, sum: Int) {
+    var min = scores[0]
+    var max = scores[0]
+    var sum = 0
+    
+    for score in scores {
+        if score > max {
+            max = score
+        } else if score < min {
+            min = score
+        }
+        sum += score
+    }
+    
+    return (min, max, sum)
+}
 
-let quotation = """
-    Even though there's whitespace to the left,
-    the actual lines aren't indented.
-        Except for this line.
-    Double quotes (") can appear without escaped.
-    I still have \(radius * pi) big circle.
-    """
-
-print(quotation)
+let statistics = calculateStatistics(scores: [5, 3, 100, 3, 9])
+print(statistics.self)
+print(statistics.sum)
+print(statistics.2)
